@@ -1,1 +1,1 @@
-# medicine-backend
+# medicine-app-api
