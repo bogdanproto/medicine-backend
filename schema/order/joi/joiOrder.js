@@ -1,10 +1,6 @@
 import Joi from 'joi';
 
 export const joiOrderCreateSchema = Joi.object({
-  store: Joi.string().required().messages({
-    'any.required': 'Store is required',
-    'string.empty': 'Store is not allowed to be empty',
-  }),
   name: Joi.string().required().messages({
     'any.required': 'Name is required',
     'string.empty': 'Name is not allowed to be empty',
@@ -29,9 +25,11 @@ export const joiOrderCreateSchema = Joi.object({
   products: Joi.array()
     .items(
       Joi.object({
+        _id: Joi.string().required(),
         title: Joi.string().required(),
+        imgCloud: Joi.string().required(),
         quantity: Joi.number().required(),
-        priceItem: Joi.number().required(),
+        price: Joi.number().required(),
       })
     )
     .required(),
