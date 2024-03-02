@@ -8,11 +8,6 @@ export const mongooseOrderShema = new Schema(
       ref: 'user',
       required: [true, 'User is required'],
     },
-    store: {
-      type: Schema.Types.ObjectId,
-      ref: 'store',
-      required: [true, 'Store is required'],
-    },
     name: {
       type: String,
       required: [true, 'Name is required'],
@@ -37,7 +32,15 @@ export const mongooseOrderShema = new Schema(
     },
     products: [
       {
+        _id: {
+          type: String,
+          required: true,
+        },
         title: {
+          type: String,
+          required: true,
+        },
+        imgCloud: {
           type: String,
           required: true,
         },
@@ -45,7 +48,7 @@ export const mongooseOrderShema = new Schema(
           type: Number,
           required: true,
         },
-        priceItem: {
+        price: {
           type: Number,
           required: true,
         },
